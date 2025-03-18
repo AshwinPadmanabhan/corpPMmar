@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="305b00bc-26e9-44b3-a625-89669b0e7c39" id="3">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="25751f83-c63c-4dfc-9e25-b9b0a6cfaa53" name="StepGroup" testItemId="16" title="Connection">
+      <associations/>
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Connection</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="3">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="a3378cad-fdd7-453b-bae3-50b4fea84105" name="ApexConnect" testItemId="4" title="Salesforce Connect: SalesUser (Test)">
+              <associations/>
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">InsideSalesUser</value>
+                </argument>
+                <argument id="connectionId">
+                  <value class="value" valueClass="id">06f73292-b2e0-4e6c-8dda-e146d1d0ff00</value>
+                </argument>
+                <argument id="reuseConnectionName"/>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">SalesUser</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="alreadyOpenBehaviour">
+                  <value class="value" valueClass="string">Fail</value>
+                </argument>
+                <argument id="uiApplicationName">
+                  <value class="value" valueClass="string">Inside_Sales</value>
+                </argument>
+                <argument id="closeAllPrimaryTabs">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="quickUiLogin">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="privateBrowsingMode"/>
+                <argument id="enableObjectIdLogging">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="autoCleanup">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="cleanupConnectionName"/>
+                <argument id="logFileLocation"/>
+                <argument id="username"/>
+                <argument id="password"/>
+                <argument id="securityToken"/>
+                <argument id="environment"/>
+                <argument id="lightningMode">
+                  <value class="value" valueClass="string">default</value>
+                </argument>
+                <argument id="webBrowser"/>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="cddd38b7-5658-4989-9aa9-73bc793689f6" name="StepGroup" testItemId="17" title="Create data">
+      <associations/>
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Create data</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="SourceData" variableScope="Test">
+          <cacheToken>C:/Users/nirmalkumar-a/Provar Project/LTUAT/WorkSpace4/Paypal Sales/templates/Worldready.xlsx;1731773072602</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="AccountName"/>
+            <apiParam name="BillingStreet"/>
+            <apiParam name="BillingCity"/>
+            <apiParam name="BillingState"/>
+            <apiParam name="BillingZip"/>
+            <apiParam name="BillingCountry"/>
+            <apiParam name="MCC"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/Worldready.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Account</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:G7</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="9">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="4152ca55-8da1-4b46-8506-b423e56a69eb" name="SetValues" testItemId="39" title="Set Values: AccountName">
+              <associations/>
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">AccountName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">info</value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">4</value>
+                              </argument>
+                              <argument id="format">
+                                <value class="variable">
+                                  <path element="NUMERIC"/>
+                                </value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <caseCall guid="53879117-df47-4336-a0f6-3df29bd73d3e" testCaseId="b2fb7d3b-b921-4939-baff-3cd7dd1c771e" testCasePath="tests/SalesPlanning/Worldready/Callable/Create Account - Merchant.testcase" testItemId="10">
+              <associations/>
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SalesUser</value>
+                </argument>
+                <argument id="AccountName">
+                  <value class="variable">
+                    <path element="AccountName"/>
+                  </value>
+                </argument>
+                <argument id="MCC">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">2</index>
+                      </filter>
+                    </path>
+                    <path element="MCC"/>
+                  </value>
+                </argument>
+                <argument id="BillingCountry">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">2</index>
+                      </filter>
+                    </path>
+                    <path element="BillingCountry"/>
+                  </value>
+                </argument>
+                <argument id="BillingStreet">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">2</index>
+                      </filter>
+                    </path>
+                    <path element="BillingStreet"/>
+                  </value>
+                </argument>
+                <argument id="BillingCity">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">2</index>
+                      </filter>
+                    </path>
+                    <path element="BillingCity"/>
+                  </value>
+                </argument>
+                <argument id="BillingState">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">2</index>
+                      </filter>
+                    </path>
+                    <path element="BillingState"/>
+                  </value>
+                </argument>
+                <argument id="BillingZip">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">2</index>
+                      </filter>
+                    </path>
+                    <path element="BillingZip"/>
+                  </value>
+                </argument>
+                <argument id="BusinessAs">
+                  <value class="variable">
+                    <path element="AccountName"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="accountId">
+                  <name class="value" valueClass="string">accountId</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="8183976a-31df-44c6-bb62-ae3252a6aa35" name="StepGroup" testItemId="18" title="Validation">
+      <associations/>
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Validation</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="12">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="c9c81163-b241-47bb-99b8-14837ec230fe" name="UiWithScreen" testItemId="31" title="On AccountPages page">
+              <associations/>
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">SalesUser</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.AccountPages"/>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Always</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On AccountPages page</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="uiTargetUrl"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="32">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="a1879972-7c12-4fd6-b825-2a0a04bbc47c" isTitleUpdated="true" name="UiAssert" testItemId="33" title="AccountName- Invalid Pattern">
+                      <associations/>
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="WorldReadyAccountNameError">
+                              <fieldLocator uri="ui:pageobject:field?field=WorldReadyAccountNameError&amp;pageId=pageobjects.AccountPages"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">Name contains invalid pattern</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">true</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="ui:wait:timed?seconds=8"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="8dd655b1-a0c3-48ee-acf9-10f6b8715e37" isTitleUpdated="true" name="UiAssert" testItemId="40" title="DoingBusinessAs-Invalid Pattern">
+                      <associations/>
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="WorldReadyDoingBusinessAsError">
+                              <fieldLocator uri="ui:pageobject:field?field=WorldReadyDoingBusinessAsError&amp;pageId=pageobjects.AccountPages"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">Name contains invalid pattern</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="e2f03acc-e384-4872-82d5-8e2287dac807" isTitleUpdated="true" name="UiAssert" testItemId="41" title="Billing Street - Required Error">
+                      <associations/>
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="WorldReadyBillingStreetError">
+                              <fieldLocator uri="ui:pageobject:field?pageId=pageobjects.AccountPages&amp;field=WorldReadyBillingStreetError"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">A required field is not provided</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="87edadc5-d714-4193-8781-ae81bea3e31c" isTitleUpdated="true" name="UiAssert" testItemId="34" title="BillingState-RequiredFieldError">
+                      <associations/>
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="WorldReadyBillingStateError">
+                              <fieldLocator uri="ui:pageobject:field?field=WorldReadyBillingStateError&amp;pageId=pageobjects.AccountPages"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">A required field is not provided</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="7a8a9b86-3f05-48f8-be46-8eaf402e050f" isTitleUpdated="true" name="UiAssert" testItemId="42" title="BillingZip-RequiredError">
+                      <associations/>
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="WorldReadyBillingZipError">
+                              <fieldLocator uri="ui:pageobject:field?pageId=pageobjects.AccountPages&amp;field=WorldReadyBillingZipError"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">A required field is not provided</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="790484ff-7b76-4bcb-a1be-cd2f596d20a3" isTitleUpdated="true" name="UiAssert" testItemId="43" title="Billing City-Required Field">
+                      <associations/>
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="WorldReadyBiilingCityError">
+                              <fieldLocator uri="ui:pageobject:field?pageId=pageobjects.AccountPages&amp;field=WorldReadyBiilingCityError"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">A required field is not provided</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">true</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+              <generatedParameters/>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="866c2fd0-06e5-402a-9e45-5663c102bbdc" name="ApexConnect" testItemId="15" title="Salesforce Connect: SysAdmin (Test)">
+              <tags/>
+              <associations/>
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">SystemAdministrator</value>
+                </argument>
+                <argument id="connectionId">
+                  <value class="value" valueClass="id">26e8fe46-3a97-48d4-a66c-c2930708802b</value>
+                </argument>
+                <argument id="reuseConnectionName"/>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">SysAdmin</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="alreadyOpenBehaviour">
+                  <value class="value" valueClass="string">Fail</value>
+                </argument>
+                <argument id="uiApplicationName"/>
+                <argument id="closeAllPrimaryTabs">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="quickUiLogin">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="privateBrowsingMode"/>
+                <argument id="enableObjectIdLogging">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="autoCleanup"/>
+                <argument id="cleanupConnectionName"/>
+                <argument id="logFileLocation"/>
+                <argument id="username"/>
+                <argument id="password"/>
+                <argument id="securityToken"/>
+                <argument id="environment"/>
+                <argument id="lightningMode">
+                  <value class="value" valueClass="string">default</value>
+                </argument>
+                <argument id="webBrowser"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="4587a28d-181b-4e04-a9c7-de247c9a1ae9" name="ApexSoqlQuery" testItemId="13" title="SOQL Query: SELECT Id,Validation_Status__c\n    ,Worldready_Errors__c from Account Where Id='001QL00000UaAFhYAN'=&gt;AccountRows">
+              <associations/>
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">SELECT Id,Validation_Status__c\n    ,Worldready_Errors__c from Account Where Id='</value>
+                      <variable>
+                        <path element="accountId"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SysAdmin</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">AccountRows</value>
+                </argument>
+                <argument id="soqlColumnAliases">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="67c9077d-c2a4-44d8-bfbb-869bcdbb3567" name="AssertValues" testItemId="14" title="Assert: {AccountRows.Validation_Status__c} EqualTo Invalid Data">
+              <associations/>
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="AccountRows"/>
+                    <path element="Validation_Status__c"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">Invalid Data</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <associations/>
+</testCase>

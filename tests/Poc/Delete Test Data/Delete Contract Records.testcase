@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="30d830cb-0822-4bd8-a45f-4ec99b0fdb02" id="12" registryId="2ddb39c3-15e6-4e2c-8c50-975153369ae8" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="0743b0e7-cc75-484c-bb27-b75b6d8cb0a3" name="ApexConnect" testItemId="1" title="Salesforce Connect: SystemAdmin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">daf3265f-d370-49b6-b8cf-b7e767aa5fad</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument argId="df9aab64-cfc4-4282-aa32-2f69e68af456" id="reuseConnectionName">
+          <value class="variable">
+            <path element="reuseConnectionName"/>
+          </value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="6869d583-177b-47c8-bb72-74251a9eb28c" name="SetValues" testItemId="8" title="Set Values: Date">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">User</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">005PX000001kXTuYAM</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Date</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">2024-10-08</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="28935033-0a5a-48d2-b284-891a08159498" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id from Contracts where Status='Activated' AND CreatedDate=2024-07-30T10:19:42.000Z AND CreatedById ='005PX000001kXTuYAM'=&gt;ApttusRows">
+      <tags>
+        <string>disabled</string>
+      </tags>
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="value" valueClass="string">select Id from Contracts where Status='Activated' AND CreatedDate=2024-07-30T10:19:42.000Z AND CreatedById ='005PX000001kXTuYAM'</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">ApttusRows</value>
+        </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="bd7bd9ae-f1ec-4424-aa86-309e139e421f" name="ApexSoqlQuery" testItemId="7" title="SOQL Query: SELECT Id FROM Contract WHERE Status = 'Activated' AND CreatedById = '{User}' AND CreatedDate &gt;= {Date}T00:00:00.000Z AND CreatedDate &lt;= {Date}T23:59:59.000Z=&gt;ContractRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">SELECT Id FROM Contract WHERE Status = 'Activated' AND CreatedById = '</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">' AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z AND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">ContractRows</value>
+        </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" guid="b4f221af-a476-429f-b5fa-b761941651ab" name="Write" testItemId="6" title="Write: {ContractRows}=&gt;templates/ContractRecordsList.csv">
+      <tags/>
+      <arguments>
+        <argument id="data">
+          <value class="variable">
+            <path element="ContractRows"/>
+          </value>
+        </argument>
+        <argument id="dataUrl">
+          <value class="csvTarget">
+            <csvFilePath class="value" valueClass="string">templates/ContractRecordsList.csv</csvFilePath>
+          </value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">templates/ContractRecordsList.csv</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexBulk" guid="b10bb680-2b63-4b82-b646-6cea893aa0f8" name="ApexBulk" testItemId="5" title="Apex Bulk: delete=&gt;ResultObject">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Contract</value>
+        </argument>
+        <argument id="operation">
+          <value class="value" valueClass="string">delete</value>
+        </argument>
+        <argument id="externalIdFieldName"/>
+        <argument id="assignmentRuleId"/>
+        <argument argId="ce57c37a-f796-4d0f-8509-aa0f099489f1" id="data">
+          <value class="url">templates/ContractRecordsList.csv</value>
+        </argument>
+        <argument id="contentType">
+          <value class="value" valueClass="string">CSV</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">ResultObject</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+  </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:df9aab64-cfc4-4282-aa32-2f69e68af456" name="reuseConnectionName" passwordVariableAllowed="true" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
+    <param name="User" passwordVariableAllowed="true" title="User">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="Date" passwordVariableAllowed="true" title="Date">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+  </params>
+  <args>
+    <argument id="reuseConnectionName"/>
+    <argument id="User">
+      <value class="value" valueClass="string">User</value>
+    </argument>
+    <argument id="Date">
+      <value class="value" valueClass="string">Date</value>
+    </argument>
+  </args>
+</testCase>

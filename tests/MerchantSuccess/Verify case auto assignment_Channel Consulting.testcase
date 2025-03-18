@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="be90c49d-0d58-4383-9778-1aef5faeb5c0" id="12" registryId="daa8c969-6b14-4c09-8a0f-cbd21f497101">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="2fbb8cf3-9298-4fb6-af84-bcde8f322623" name="StepGroup" testItemId="174" title="Create a PPTS case">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Create a PPTS case</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="175">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="127dcb17-1ebc-4acf-9cc3-ea53fd52d736" name="ApexConnect" testItemId="176" title="Salesforce Connect: MTSLTUAT (Test)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">SystemAdmin</value>
+                </argument>
+                <argument id="connectionId">
+                  <value class="value" valueClass="id">daf3265f-d370-49b6-b8cf-b7e767aa5fad</value>
+                </argument>
+                <argument id="reuseConnectionName"/>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">MTSLTUAT</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="alreadyOpenBehaviour">
+                  <value class="value" valueClass="string">Fail</value>
+                </argument>
+                <argument id="uiApplicationName">
+                  <value class="value" valueClass="string">LightningService</value>
+                </argument>
+                <argument id="closeAllPrimaryTabs">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="quickUiLogin">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="privateBrowsingMode"/>
+                <argument id="enableObjectIdLogging">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="autoCleanup"/>
+                <argument id="cleanupConnectionName"/>
+                <argument id="logFileLocation"/>
+                <argument id="username"/>
+                <argument id="password"/>
+                <argument id="securityToken"/>
+                <argument id="environment"/>
+                <argument id="lightningMode">
+                  <value class="value" valueClass="string">default</value>
+                </argument>
+                <argument id="webBrowser"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="e0169523-8be1-4a03-a09c-2f399cbcd5c8" name="UiWithScreen" testItemId="316" title="On SF Case Home screen">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">MTSLTUAT</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="sf:ui:target?object=Case&amp;action=ObjectHome"/>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Dont</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On SF Case Home screen</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="scTabType">
+                  <value class="value" valueClass="string">HomeTab</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="317">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="18eb7509-0041-4882-ade6-42e4aab82446" name="UiDoAction" testItemId="318" title="Click the New Case button">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=NewCase&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26action%3DNewCase"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the New Case button</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+              <generatedParameters>
+                <apiParam group="target" name="scTabType" seq="1000" title="Tab Type">
+                  <summary>The tab type for Scaffolds</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="valuesSource">com.provar.plugins.sf.eclipse.ui:com.provar.plugins.forcedotcom.ui.valuesources.SfEnumChoiceListValuesSource</valueConstraint>
+                        <valueConstraint name="valuesSourceDependencies">com.provar.plugins.forcedotcom.core.ui.SfUiTargetUrl$ConsoleTabType</valueConstraint>
+                      </constraints>
+                    </choiceType>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="280d74f3-56e9-4549-ad15-2902b2ecb8e7" name="UiWithScreen" testItemId="334" title="On SF Case Record Type selection screen">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">MTSLTUAT</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="sf:ui:target?object=Case&amp;action=recordTypeNew"/>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Dont</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On SF Case Record Type selection screen</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="scTabType">
+                  <value class="value" valueClass="string">CurrentTab</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="335">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="700ae813-8ae3-4da4-a7d0-cc3df549d843" name="UiDoAction" testItemId="336" title="Set the Record Type select to Channel Consulting">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=RecordType&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3D%7BtargetUrl%3Aobject%7D%26field%3DRecordTypeId"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                        </argument>
+                        <argument id="value">
+                          <value class="value" valueClass="string">Channel Consulting</value>
+                        </argument>
+                        <argument id="blur">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">full</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Set the Record Type select to Channel Consulting</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" modelBinding="sf:ui:binding:object?object=Case&amp;field=RecordTypeId" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
+                          <summary>The value to be populated.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="boundedValues">APAC Audit Support:APAC Audit Support|APAC Pricing Toggle Request:APAC Pricing Toggle Request|Channel Consulting EM Request:Channel Consulting EM Request|Paydiant Demo Requests:Paydiant Demo Requests|EU Revenue Enable Escalation:EU Revenue Enable Escalation|Partner Management:Partner Management|Account Management Case:Account Management Case|Payouts Assistance Request:Payouts Assistance Request|Complaint Case:Complaint Case|AU Country Support Cases:AU Country Support Cases|APAC Merchant Optimization Request:APAC Merchant Optimization Request|Website Not Compliant:Website Not Compliant|APAC ROMS Onboarding Request:APAC ROMS Onboarding Request|Paydiant Active Support Case Record:Paydiant Active Support Case Record|BT Account Specialist:BT Account Specialist|Enterprise Partner Support:Enterprise Partner Support|Sales Compensation:Sales Compensation|PPGF Webinar:PPGF Webinar|DEATCH Deal to Live support:DEATCH Deal to Live support|Paydiant Maintenance Notifications:Paydiant Maintenance Notifications|EU Go Live Underwriting:EU Go Live Underwriting|Salesforce Support Request LATAM:Salesforce Support Request LATAM|APAC ROMS Escalation Request:APAC ROMS Escalation Request|PPGF Accounting:PPGF Accounting|BD AM Request:BD AM Request|Global Sales Support Case:Global Sales Support Case|Outreach Escalation:Outreach Escalation|APAC Most Request:APAC Most Request|PPGF Care Inquiry:PPGF Care Inquiry|EU Contract Case:EU Contract Case|Partner Rev Ops Support:Partner Rev Ops Support|APAC AM Request:APAC AM Request|CIP Merchant Support:CIP Merchant Support|Contra Approval:Contra Approval|Partner CSM Onboarding Request:Partner CSM Onboarding Request|APAC PayPal Account Request:APAC PayPal Account Request|EMEA Partner Support:EMEA Partner Support|PP EU Legal Admin:PP EU Legal Admin|APAC EPO Request:APAC EPO Request|NA TS Commission Inquiry:NA TS Commission Inquiry|Global KYP:Global KYP|SPS Planning and Governance:SPS Planning and Governance|Gbl Ops Case Management:Gbl Ops Case Management|Commission Exception:Commission Exception|SRS Commercial Info Request:SRS Commercial Info Request|Braintree Account Manager Handover:Braintree Account Manager Handover|APAC Account Management:APAC Account Management|PPGF High Value CS:PPGF High Value CS|BD SM Request:BD SM Request|Merchant CSM Onboarding Request:Merchant CSM Onboarding Request|Correction Tool Requests – Global:Correction Tool Requests – Global|PPTS Support:PPTS Support|NA SMB Integration Question:NA SMB Integration Question|APAC Payment Acceptance:APAC Payment Acceptance|Franchise Outreach:Franchise Outreach|Onboarding:Onboarding|NA MOST Request:NA MOST Request|NA POS - EM Request:NA POS - EM Request|NA SMB Retail:NA SMB Retail|Account Transitions:Account Transitions|Skynet Request Process:Skynet Request Process|APAC Country Support:APAC Country Support|NA Most Voids and Refunds:NA Most Voids and Refunds|NA LM - EM Request:NA LM - EM Request|APAC ROMS Proactive Action:APAC ROMS Proactive Action|NA LE Franchise Support:NA LE Franchise Support|NA Solutions Consultant Request:NA Solutions Consultant Request|NA SMB Phone Queue Escalation:NA SMB Phone Queue Escalation|ROMS Request:ROMS Request|NA Merchant Services:NA Merchant Services|Relationship Risk:Relationship Risk|NA Onboarding Assistance Request:NA Onboarding Assistance Request|NA MS Integration Request:NA MS Integration Request|Watchlist:Watchlist|SLA Tracking:SLA Tracking|NA MS Integration Quick Question:NA MS Integration Quick Question|NA LM - Portfolio Support:NA LM - Portfolio Support|NA Merchant Onboarding Request:NA Merchant Onboarding Request|NA LM - SE Request:NA LM - SE Request|Global Partner Manager Request:Global Partner Manager Request|NA SMB Go-Live:NA SMB Go-Live|APAC AM Handover Request:APAC AM Handover Request|LATAM LM - Integration Help Request:LATAM LM - Integration Help Request|NA LM - Consulting:NA LM - Consulting|NA SMB Integration Assignment:NA SMB Integration Assignment|NA MM Govt Questions:NA MM Govt Questions|Global Outreach:Global Outreach|NA Onboarding:NA Onboarding|Salesforce Support Request:Salesforce Support Request|Product Escalation:Product Escalation|NA LM Actions:NA LM Actions|Seller Risk and Compliance Queries:Seller Risk and Compliance Queries|LATAM Account Management:LATAM Account Management|BT/PP SWG Integration Assignment:BT/PP SWG Integration Assignment|Pre-Screen Check:Pre-Screen Check|NA Disti Sales Support Cases:NA Disti Sales Support Cases|Project MAUI:Project MAUI|Integration Help Request:Integration Help Request|NA FS Omni Channel:NA FS Omni Channel|APAC BPE Grid Scoring Request:APAC BPE Grid Scoring Request|EU LM Commission Exception:EU LM Commission Exception|RnP Merchant Experience Enablement:RnP Merchant Experience Enablement|NA Cash for Registers:NA Cash for Registers|CE Customer Agreement:CE Customer Agreement|EU Merchant Optimise:EU Merchant Optimise|EU PP Credit Compliance:EU PP Credit Compliance|EU Account Management:EU Account Management|LATAM ROMS Request:LATAM ROMS Request|BT Risk Case:BT Risk Case|EU New Reporting Requests:EU New Reporting Requests|Legal Support Process:Legal Support Process|EU ROMS Request:EU ROMS Request|EU Merchant Services - Decline:EU Merchant Services - Decline|Contra Payment Request:Contra Payment Request|NA Most Franchise Toggle Request:NA Most Franchise Toggle Request|Global Rev Share Support:Global Rev Share Support|BT SAR:BT SAR|APAC AM Alert Cases:APAC AM Alert Cases|NA Channel Partner Integration:NA Channel Partner Integration|Product Feedback and Feature Request:Product Feedback and Feature Request|Global Ask ECS RevOps:Global Ask ECS RevOps|EU BU - Sales Operations:EU BU - Sales Operations|Integration Help Request - Consult Only:Integration Help Request - Consult Only|LDR Global Case:LDR Global Case|Pricing Request Close:Pricing Request Close|SMB Support Case:SMB Support Case|EU Legal Case:EU Legal Case|Channel Consulting:Channel Consulting|Paydiant Technical Bulletins:Paydiant Technical Bulletins|EU On-boarding:EU On-boarding|Gbl Ops Fatca Alerts:Gbl Ops Fatca Alerts|BT ZenDesk Case:BT ZenDesk Case|NA Legal Case:NA Legal Case|APAC Legal Case:APAC Legal Case|APAC SMB RM Audit Request:APAC SMB RM Audit Request|Global Specialist Desk:Global Specialist Desk|EU AM Request:EU AM Request|SalesForce Change Request:SalesForce Change Request|BT Sales Operations:BT Sales Operations|Global IS Onboarding Request:Global IS Onboarding Request|EU BillSAFE Legal Case:EU BillSAFE Legal Case|Integration Transfer Request:Integration Transfer Request|BT Disputes Case:BT Disputes Case|Merchant Interactions:Merchant Interactions|APAC TAM Request:APAC TAM Request|Brexit Case:Brexit Case|Billing Settlement:Billing Settlement|Pricing Request:Pricing Request|RnP FAM-Fraud Account Management:RnP FAM-Fraud Account Management|AskLE:AskLE|BT Balance Case:BT Balance Case|EU AM Handover Request:EU AM Handover Request|BT Integration Help Request:BT Integration Help Request</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="3142ce84-aceb-44b7-b702-6f8b5c556c7d" name="UiDoAction" testItemId="337" title="Click the Continue button">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=save&amp;path=selectRecordType"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the Continue button</value>
+                        </argument>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+              <generatedParameters>
+                <apiParam group="target" name="scTabType" seq="1000" title="Tab Type">
+                  <summary>The tab type for Scaffolds</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="valuesSource">com.provar.plugins.sf.eclipse.ui:com.provar.plugins.forcedotcom.ui.valuesources.SfEnumChoiceListValuesSource</valueConstraint>
+                        <valueConstraint name="valuesSourceDependencies">com.provar.plugins.forcedotcom.core.ui.SfUiTargetUrl$ConsoleTabType</valueConstraint>
+                      </constraints>
+                    </choiceType>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="74efad09-28e0-45ce-83ef-dd474e036d19" name="UiWithScreen" testItemId="309" title="On SF Case (Channel Consulting) New screen">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">MTSLTUAT</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="sf:ui:target?object=Case&amp;action=New&amp;recordType=Channel+Consulting&amp;noOverride=true"/>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Dont</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On SF Case (Channel Consulting) New screen</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="scTabType">
+                  <value class="value" valueClass="string">CurrentTab</value>
+                </argument>
+                <argument id="sfUiTargetResultName">
+                  <value class="value" valueClass="string">caseId</value>
+                </argument>
+                <argument id="sfUiTargetResultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="310">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="c4418a9e-f882-4e9e-925b-999cf8964018" name="UiDoAction" testItemId="311" title="Set the Subject field to Test Subject">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=Subject&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26field%3DSubject"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                        </argument>
+                        <argument id="value">
+                          <value class="value" valueClass="string">Test Subject</value>
+                        </argument>
+                        <argument id="blur">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Set the Subject field to Test Subject</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="value" passwordVariableAllowed="true" title="Value">
+                          <summary>The value to be populated.</summary>
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="blur" title="Tab off field">
+                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="pressEnter" title="Press Enter">
+                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="bc7797ed-c071-48c9-8be3-539a7c5fa2e6" name="UiDoAction" testItemId="312" title="Set the Type picklist to Global BD">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=Type&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26field%3DType"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                        </argument>
+                        <argument id="value">
+                          <value class="value" valueClass="string">Global BD</value>
+                        </argument>
+                        <argument id="blur">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Set the Type picklist to Global BD</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" modelBinding="sf:ui:binding:object?object=Case&amp;field=Type" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
+                          <summary>The value to be populated.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="boundedValues">21 days without contact:21 days without contact|30-Day Outreach:30-Day Outreach|3rd Party Cart:3rd Party Cart|3rd Party Software:3rd Party Software|60-Day Outreach:60-Day Outreach|90-Day Outreach:90-Day Outreach|Account Configuration:Account Configuration|Account Configuration Request:Account Configuration Request|Account Conversions:Account Conversions|Account Escalation:Account Escalation|Account Maintenance:Account Maintenance|Account Settings/Toggles:Account Settings/Toggles|Activation:Activation|Admin:Admin|Admin Flag Change:Admin Flag Change|Administration:Administration|AFR Cancel:AFR Cancel|Airline Review:Airline Review|Analysis &amp; Reporting:Analysis &amp; Reporting|Analytics:Analytics|Analytics Support:Analytics Support|API:API|API Problem:API Problem|AskDevSupport:AskDevSupport|ASP Change:ASP Change|Authorization Release Request:Authorization Release Request|B1 relationship Status:B1 relationship Status|Bank of America Tokyo escalation:Bank of America Tokyo escalation|Billing:Billing|Billing (Administrative):Billing (Administrative)|Blueprint - Optimization:Blueprint - Optimization|Braintree:Braintree|Browser Issue:Browser Issue|BT:BT|Bug Report:Bug Report|Business Review:Business Review|Button Factory:Button Factory|Buyer Complaint:Buyer Complaint|Buyer initiated:Buyer initiated|Campaign:Campaign|Campaign Launch:Campaign Launch|Catalog:Catalog|CBT:CBT|CC breach:CC breach|CC breach expansion:CC breach expansion|Chargeback:Chargeback|Chargeback Reduction Plan:Chargeback Reduction Plan|Claims Reduction Plan:Claims Reduction Plan|Closed Loop Offer/MSB:Closed Loop Offer/MSB|CMS:CMS|Coding Assistance:Coding Assistance|Commercial:Commercial|Commission Inquiry:Commission Inquiry|Competitor Analysis:Competitor Analysis|Compliance:Compliance|Comp Rules:Comp Rules|Configuration:Configuration|Contract Management:Contract Management|Conversion Rate Change:Conversion Rate Change|Corridor Tracking:Corridor Tracking|Courtesy Credit:Courtesy Credit|Creative:Creative|Credit:Credit|Credit Breach Escalation:Credit Breach Escalation|Credit Card Breach:Credit Card Breach|CT\\\\: Courtesy Credit:CT\\\\: Courtesy Credit|CT Reimbursement:CT Reimbursement|Custom Code:Custom Code|Custom Domain:Custom Domain|Customer Issue:Customer Issue|Customer Portal:Customer Portal|Customers:Customers|CUSTOMER SUCCESS PLAN:CUSTOMER SUCCESS PLAN|Dashboard:Dashboard|Database Issue:Database Issue|Data Issue:Data Issue|Data Migration:Data Migration|Data problem:Data problem|Data Segment:Data Segment|Dead Line:Dead Line|Decline enabled solution:Decline enabled solution|Declining Volume:Declining Volume|Delete:Delete|Design:Design|Developer:Developer|Development:Development|Different Merchant:Different Merchant|Direct (Sales):Direct (Sales)|Disputes Consulting Services:Disputes Consulting Services|Distribution Partner:Distribution Partner|Documentation Request:Documentation Request|Documentation Review:Documentation Review|DSR/TRS issue:DSR/TRS issue|eBay Cyber Attack:eBay Cyber Attack|Edit:Edit|Email Confirmation:Email Confirmation|Enhancement:Enhancement|Escalation:Escalation|Exception:Exception|Executive/Internal Assistance:Executive/Internal Assistance|Explosive Growth:Explosive Growth|Express Checkout:Express Checkout|Extensions:Extensions|Feature Improvement:Feature Improvement|Feature Request:Feature Request|Feature Request/Policy Change:Feature Request/Policy Change|Forced Churn:Forced Churn|Franchise Outreach Request:Franchise Outreach Request|Franchise Toggle Request:Franchise Toggle Request|Front end:Front end|Functional Design Document (FDD):Functional Design Document (FDD)|Gambling Review:Gambling Review|General EM Assistance:General EM Assistance|Global BD:Global BD|GO EOL:GO EOL|Google API:Google API|High Risk Rates:High Risk Rates|How To Questions:How To Questions|InDirect:InDirect|Integration:Integration|Integration Audit/Review:Integration Audit/Review|Integration Help Request:Integration Help Request|Internal:Internal|Internal Chasing:Internal Chasing|Internal Risk Review Escalation:Internal Risk Review Escalation|International Assistance:International Assistance|Internationalization and Localization:Internationalization and Localization|Invalid:Invalid|IRS TIN Mismatch:IRS TIN Mismatch|IS BT:IS BT|IS PayPal:IS PayPal|IS PayPal &amp; BT:IS PayPal &amp; BT|Issue / Bug:Issue / Bug|Issue on Existing Reporting/Process:Issue on Existing Reporting/Process|Lapse:Lapse|Large loss analysis:Large loss analysis|Leave of Absence:Leave of Absence|Legal Request:Legal Request|License/Sales Inquiry:License/Sales Inquiry|Lightbox:Lightbox|Limitation:Limitation|LIPP:LIPP|List- Bug:List- Bug|Live Auction Help:Live Auction Help|Losses Reduction:Losses Reduction|Loyalty/Rewards:Loyalty/Rewards|Magento Commerce:Magento Commerce|Magentocommerce My Account:Magentocommerce My Account|Magento Connect:Magento Connect|Magento U:Magento U|Maintenance:Maintenance|MAM Request:MAM Request|Manage:Manage|Managed:Managed|Manager Change:Manager Change|MAPO/BPE:MAPO/BPE|Marketing:Marketing|Marketing campaign enabled solution:Marketing campaign enabled solution|Marketing Campaigns and Communication:Marketing Campaigns and Communication|Mass Notification Email:Mass Notification Email|MAUI:MAUI|Merchant Administration:Merchant Administration|Merchant Conversion Optimization:Merchant Conversion Optimization|Merchant Conversion Solutions:Merchant Conversion Solutions|Merchant Education:Merchant Education|Merchant Escalation:Merchant Escalation|Merchant Event / Campaign Planning:Merchant Event / Campaign Planning|Merchant Experience Enhancement:Merchant Experience Enhancement|Merchant initiated:Merchant initiated|Merchant Intro Engagement:Merchant Intro Engagement|Merchant Loss Management:Merchant Loss Management|Merchant Risk Improvement:Merchant Risk Improvement|Merchant risk improvement solution:Merchant risk improvement solution|Merchant Technical:Merchant Technical|Merchant Visit:Merchant Visit|Merchant webinar/seminar:Merchant webinar/seminar|Merge:Merge|Misroute (not an Integration call):Misroute (not an Integration call)|Mix Buyer and Merchant initiated:Mix Buyer and Merchant initiated|Mobile:Mobile|MRO Reserve Graduation:MRO Reserve Graduation|Multichannel SPP Request:Multichannel SPP Request|MUMA:MUMA|NA SICT Investigation:NA SICT Investigation|Negative Balance:Negative Balance|New:New|New Feature:New Feature|New Hire:New Hire|New Product Rollout:New Product Rollout|New Request of Reporting/Process:New Request of Reporting/Process|Newsletter:Newsletter|NONFI_180:NONFI_180|NONFI_60:NONFI_60|NONFI_75:NONFI_75|NONFI_90:NONFI_90|Notification Email:Notification Email|Offer/Coupon:Offer/Coupon|Onboarding:Onboarding|Onboarding AFC:Onboarding AFC|Onboarding LTS:Onboarding LTS|Onsite Visit:Onsite Visit|Operational:Operational|Operational problem:Operational problem|Optimise:Optimise|Orders, Cart, and Checkout:Orders, Cart, and Checkout|Organic Review:Organic Review|Organic Underwrite Notification:Organic Underwrite Notification|Other:Other|Other internal activity:Other internal activity|Outages:Outages|Parnter Escalation:Parnter Escalation|Partial Churn:Partial Churn|Partner:Partner|Partner Visit:Partner Visit|Payflow API:Payflow API|Payment Accounts:Payment Accounts|Payment method:Payment method|PayPal:PayPal|PayPal &amp; BT:PayPal &amp; BT|PayPal API:PayPal API|PayPal Here:PayPal Here|PayPal Payments Standard:PayPal Payments Standard|PCE:PCE|PCI Compliance:PCI Compliance|Pending AMEX Application:Pending AMEX Application|Performance:Performance|Periodic Review:Periodic Review|PIP:PIP|Positive Experience:Positive Experience|Post-integration:Post-integration|Post Integration Support:Post Integration Support|Post-Live Issue:Post-Live Issue|Post-Sales:Post-Sales|Potential Churn:Potential Churn|Pre-Sales:Pre-Sales|Pricing:Pricing|Pricing Toggle Request:Pricing Toggle Request|Privacy - GDPR Request:Privacy - GDPR Request|Proactive:Proactive|Proactive Education:Proactive Education|Proactive Review:Proactive Review|Problem:Problem|Product:Product|Product Issue:Product Issue|Product Request:Product Request|Product Review:Product Review|Project:Project|Project EMU:Project EMU|Projects - Sales Ops Only:Projects - Sales Ops Only|Promotion/Role Change:Promotion/Role Change|Promotions:Promotions|Question:Question|Reactive:Reactive|Reactive Education:Reactive Education|Reassigned-Closed Acct:Reassigned-Closed Acct|Reassigned-Suspended Acct:Reassigned-Suspended Acct|Reference Implementation:Reference Implementation|Referral:Referral|Refund:Refund|Registration/Enrollment:Registration/Enrollment|Reimbursement:Reimbursement|Renewal:Renewal|Reporting / Analytics:Reporting / Analytics|Reporting Issue:Reporting Issue|Report Request:Report Request|Reports:Reports|Request/Need:Request/Need|Request for Feature Usage:Request for Feature Usage|Request Need:Request Need|Resolution Centre:Resolution Centre|Risk Assistance:Risk Assistance|Risk Monitoring Review:Risk Monitoring Review|Risk Reduction:Risk Reduction|ROMS Loss Saving:ROMS Loss Saving|Sabbatical:Sabbatical|Sales:Sales|Salesforce.com:Salesforce.com|Salesforce Account Request:Salesforce Account Request|Salesforce Support:Salesforce Support|Sales Inquiry:Sales Inquiry|Sales Rules:Sales Rules|Sales Strategy:Sales Strategy|Same Merchant:Same Merchant|SDK Request:SDK Request|Search:Search|Seller Metric:Seller Metric|Seller Protection Exception:Seller Protection Exception|SEO:SEO|Server:Server|SFDC:SFDC|SF Opp Mgmt:SF Opp Mgmt|Share of Checkout:Share of Checkout|Shipping:Shipping|Si:Si|SLA Compliance:SLA Compliance|SLA Contra:SLA Contra|SLA Legal:SLA Legal|SLA Pricing:SLA Pricing|SLA Risk:SLA Risk|SMB Retail:SMB Retail|SMCC escalation:SMCC escalation|Solution issue:Solution issue|Solution Validation:Solution Validation|SPAM:SPAM|Special Credit:Special Credit|Special Project:Special Project|Splunk alert:Splunk alert|Spoof rate improvement:Spoof rate improvement|SPP Improvement Opportunity:SPP Improvement Opportunity|Sprint Planning:Sprint Planning|SSL:SSL|Standard KYB:Standard KYB|Stock issue:Stock issue|Store Design Problem:Store Design Problem|Store Front:Store Front|Strategic:Strategic|Strategic Accounts:Strategic Accounts|Support:Support|System:System|Technical Issues:Technical Issues|Technical Problems:Technical Problems|Tech-Review:Tech-Review|Telesales Only – Monthly Fee Waiver:Telesales Only – Monthly Fee Waiver|Telesales Only – Rate Card Pricing:Telesales Only – Rate Card Pricing|Termination:Termination|Third Party Problem:Third Party Problem|TPV Change:TPV Change|TPV Drop:TPV Drop|TPV Spike:TPV Spike|Traffic:Traffic|Transactional:Transactional|Unmanaged:Unmanaged|Updated Bank Account:Updated Bank Account|Upgrade Inquiry:Upgrade Inquiry|User Account Access Issues:User Account Access Issues|Users Deactivated:Users Deactivated|Users Requested:Users Requested|Value Added Services Review:Value Added Services Review|Virtual Terminal:Virtual Terminal|Voice of Customer:Voice of Customer|Voluntary Churn:Voluntary Churn|VOM:VOM|Wallet Activity:Wallet Activity|WhiteGlove:WhiteGlove|WPS Integration Update:WPS Integration Update|X.Commerce:X.Commerce|Xactly Request:Xactly Request</valueConstraint>
+                                <valueConstraint name="unrestricted">true</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="26348c44-e37e-4664-9ae2-8ba371c5b87a" name="UiDoAction" testItemId="313" title="Set the Contact Name reference to Aadil Adam">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=ContactId&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26field%3DContactId"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                        </argument>
+                        <argument id="value">
+                          <value class="value" valueClass="string">Aadil Adam</value>
+                        </argument>
+                        <argument id="blur">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Set the Contact Name reference to Aadil Adam</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" modelBinding="sf:ui:binding:object?object=Case&amp;field=ContactId" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
+                          <summary>The value to be populated.</summary>
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="c36398b9-a5ef-461e-9354-537b857fe883" name="UiDoAction" testItemId="314" title="Set the Description field to Test Description">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=Description&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26field%3DDescription"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                        </argument>
+                        <argument id="value">
+                          <value class="value" valueClass="string">Test Description</value>
+                        </argument>
+                        <argument id="blur">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Set the Description field to Test Description</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" modelBinding="sf:ui:binding:object?object=Case&amp;field=Description" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
+                          <summary>The value to be populated.</summary>
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="1ac13e92-0368-4a05-b7bf-febaf8650fe5" name="UiDoAction" testItemId="315" title="Click the Save button">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=save&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26action%3Dsave"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the Save button</value>
+                        </argument>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+              <generatedParameters>
+                <apiParam group="target" name="scTabType" seq="1000" title="Tab Type">
+                  <summary>The tab type for Scaffolds</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="valuesSource">com.provar.plugins.sf.eclipse.ui:com.provar.plugins.forcedotcom.ui.valuesources.SfEnumChoiceListValuesSource</valueConstraint>
+                        <valueConstraint name="valuesSourceDependencies">com.provar.plugins.forcedotcom.core.ui.SfUiTargetUrl$ConsoleTabType</valueConstraint>
+                      </constraints>
+                    </choiceType>
+                  </type>
+                </apiParam>
+                <apiParam group="result" name="sfUiTargetResultName" resultNameParameter="true" title="Result Name">
+                  <summary>The name under which the resulting Object Id will be stored.</summary>
+                  <type>
+                    <textType/>
+                  </type>
+                  <resultValueClasses>
+                    <string>ApexObjectId</string>
+                  </resultValueClasses>
+                </apiParam>
+                <apiParam group="result" name="sfUiTargetResultScope" title="Result Scope">
+                  <summary>The life-span of the resulting identifiers.</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="boundedValues">Global:Test Run|Folder:Test Folder|Test:Test Case|GroupStep:Group Step|Local:Test Step</valueConstraint>
+                      </constraints>
+                    </choiceType>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="791d84b3-8da9-4601-9bcb-fdfcd5ee2932" name="UiWithScreen" testItemId="342" title="On SF Related Record (Case) component in Case view">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">MTSLTUAT</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="sf:ui:target?lightningComponent=console%3ArelatedRecord&amp;flexiPath=console_relatedRecord&amp;flexiPage=MTS_Service_Console"/>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Dont</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On SF Related Record (Case) component in Case view</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="scTabType">
+                  <value class="value" valueClass="string">CurrentTab</value>
+                </argument>
+                <argument id="sfUiTargetObjectId">
+                  <value class="value" valueClass="string">500QL00000AvDHJYA3</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="343">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="d03f35bb-2de7-4b14-892c-a951b7893589" name="UiAssert" testItemId="344" title="UI Assert">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="OwnerId">
+                              <fieldLocator uri="ui:locator?name=OwnerId&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26field%3DOwnerId"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">Channel Consulting</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">full</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="locatorParams"/>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+              <generatedParameters>
+                <apiParam group="target" name="scTabType" seq="1000" title="Tab Type">
+                  <summary>The tab type for Scaffolds</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="valuesSource">com.provar.plugins.sf.eclipse.ui:com.provar.plugins.forcedotcom.ui.valuesources.SfEnumChoiceListValuesSource</valueConstraint>
+                        <valueConstraint name="valuesSourceDependencies">com.provar.plugins.forcedotcom.core.ui.SfUiTargetUrl$ConsoleTabType</valueConstraint>
+                      </constraints>
+                    </choiceType>
+                  </type>
+                </apiParam>
+                <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
+                  <summary>The Id of the SF Object to be Viewed or Edited.</summary>
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

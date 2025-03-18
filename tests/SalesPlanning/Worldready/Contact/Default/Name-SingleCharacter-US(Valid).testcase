@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="cf608cb6-9ad2-4a79-808c-b735384e4b67" id="5">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="21f88f55-285d-4b02-b0f7-7c661b883968" name="StepGroup" testItemId="9" title="Connection">
+      <associations/>
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Connection</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="2">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="b9f852cd-657c-441f-849b-c2784d8144c1" name="ApexConnect" testItemId="7" title="Salesforce Connect: SalesUser (Test)">
+              <associations/>
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">SalesUser</value>
+                </argument>
+                <argument id="connectionId">
+                  <value class="value" valueClass="id">452fffe1-4753-4f3e-a61b-34980b434f13</value>
+                </argument>
+                <argument id="reuseConnectionName"/>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">SalesUser</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="alreadyOpenBehaviour">
+                  <value class="value" valueClass="string">Fail</value>
+                </argument>
+                <argument id="uiApplicationName"/>
+                <argument id="closeAllPrimaryTabs">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="quickUiLogin">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="privateBrowsingMode"/>
+                <argument id="enableObjectIdLogging">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="autoCleanup"/>
+                <argument id="cleanupConnectionName"/>
+                <argument id="logFileLocation"/>
+                <argument id="username"/>
+                <argument id="password"/>
+                <argument id="securityToken"/>
+                <argument id="environment"/>
+                <argument id="lightningMode">
+                  <value class="value" valueClass="string">default</value>
+                </argument>
+                <argument id="webBrowser"/>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="f981ee8c-c3f0-4c1e-9f8f-9fecbb59bdb3" name="StepGroup" testItemId="10" title="Create data">
+      <associations/>
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Create data</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="SourceData" variableScope="Test">
+          <cacheToken>C:/Users/nirmalkumar-a/Provar Project/LTUAT/Workspace6/Paypal Sales/templates/Worldready.xlsx;1731849938151</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="FirstName"/>
+            <apiParam name="LastName"/>
+            <apiParam name="MailingStreet"/>
+            <apiParam name="MailingCity"/>
+            <apiParam name="MailingState"/>
+            <apiParam name="MailingZipCode"/>
+            <apiParam name="MailingCountry"/>
+            <apiParam name="OtherStreet"/>
+            <apiParam name="OtherCity"/>
+            <apiParam name="OtherState"/>
+            <apiParam name="OtherZipCode"/>
+            <apiParam name="OtherCountry"/>
+            <apiParam name="Mailing"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/Worldready.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Contact</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:M21</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="4">
+          <steps>
+            <caseCall guid="c73a6327-e4cc-4cde-b694-02a752f3ffcf" testCaseId="da8cc8eb-a710-44cd-9707-e4c4c831020a" testCasePath="tests/SalesPlanning/Worldready/Callable/Create Contact - Default.testcase" testItemId="8">
+              <associations/>
+              <arguments>
+                <argument id="FirstName">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="FirstName"/>
+                  </value>
+                </argument>
+                <argument id="LastName">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="LastName"/>
+                  </value>
+                </argument>
+                <argument id="MailingStreet">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="MailingStreet"/>
+                  </value>
+                </argument>
+                <argument id="MailingCity">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="MailingCity"/>
+                  </value>
+                </argument>
+                <argument id="MailingState">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="MailingState"/>
+                  </value>
+                </argument>
+                <argument id="MailingZip">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="MailingZipCode"/>
+                  </value>
+                </argument>
+                <argument id="MailingCountry">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="MailingCountry"/>
+                  </value>
+                </argument>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SalesUser</value>
+                </argument>
+                <argument id="isMailing">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="Mailing"/>
+                  </value>
+                </argument>
+                <argument id="OtherStreet">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="OtherStreet"/>
+                  </value>
+                </argument>
+                <argument id="OtherCity">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="OtherCity"/>
+                  </value>
+                </argument>
+                <argument id="OtherState">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="OtherState"/>
+                  </value>
+                </argument>
+                <argument id="OtherZip">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="OtherZipCode"/>
+                  </value>
+                </argument>
+                <argument id="OtherCountry">
+                  <value class="variable">
+                    <path element="SourceData">
+                      <filter class="index">
+                        <index valueClass="decimal">19</index>
+                      </filter>
+                    </path>
+                    <path element="OtherCountry"/>
+                  </value>
+                </argument>
+                <argument id="AccountName">
+                  <value class="variable">
+                    <path element="ACCOUNT_Name_ES_US"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="contactId">
+                  <name class="value" valueClass="string">contactId</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="453ad55f-2542-450e-bf5d-87df05fc8804" name="StepGroup" testItemId="11" title="Verify the validations">
+      <associations/>
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Verify the validations</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="6">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="9e57de33-a28b-48a8-8fd4-38299384172c" name="ApexConnect" testItemId="18" title="Salesforce Connect: SysAdmin (Test)">
+              <tags/>
+              <associations/>
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">SystemAdministrator</value>
+                </argument>
+                <argument id="connectionId">
+                  <value class="value" valueClass="id">26e8fe46-3a97-48d4-a66c-c2930708802b</value>
+                </argument>
+                <argument id="reuseConnectionName"/>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">SysAdmin</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="alreadyOpenBehaviour">
+                  <value class="value" valueClass="string">Fail</value>
+                </argument>
+                <argument id="uiApplicationName"/>
+                <argument id="closeAllPrimaryTabs">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="quickUiLogin">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="privateBrowsingMode"/>
+                <argument id="enableObjectIdLogging">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="autoCleanup"/>
+                <argument id="cleanupConnectionName"/>
+                <argument id="logFileLocation"/>
+                <argument id="username"/>
+                <argument id="password"/>
+                <argument id="securityToken"/>
+                <argument id="environment"/>
+                <argument id="lightningMode">
+                  <value class="value" valueClass="string">default</value>
+                </argument>
+                <argument id="webBrowser"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="e573f891-34fb-4bb5-8d12-e0888a342ce6" name="ApexSoqlQuery" testItemId="19" title="SOQL Query: SELECT Id,Validation_Status__c\n    ,Worldready_Errors__c from Contact Where Id='{contactId}'=&gt;ContactRows">
+              <associations/>
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">SELECT Id,Validation_Status__c\n    ,Worldready_Errors__c from Contact Where Id='</value>
+                      <variable>
+                        <path element="contactId"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SysAdmin</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">ContactRows</value>
+                </argument>
+                <argument id="soqlColumnAliases">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="8c2e1279-4fa8-4501-91fb-79beaf81ac48" name="AssertValues" testItemId="20" title="Assert: {ContactRows.Validation_Status__c} EqualTo Validated">
+              <associations/>
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="ContactRows"/>
+                    <path element="Validation_Status__c"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">Validated</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <associations/>
+</testCase>

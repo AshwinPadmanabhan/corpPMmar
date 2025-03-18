@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="534f285f-2121-4574-8c1a-fc2798294ff6" id="9" registryId="2ddb39c3-15e6-4e2c-8c50-975153369ae8">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="a926a020-fd01-4b6b-8917-d158e6724ded" name="ApexConnect" testItemId="1" title="Salesforce Connect: SystemAdmin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">daf3265f-d370-49b6-b8cf-b7e767aa5fad</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="aea8e01f-9b48-4376-b48d-fd6b796405fd" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: SELECT Id FROM Compliance_Review__c WHERE CreatedById='00530000000xI1eAAE' AND ApprovalStatus__c='Approved' AND CreatedDate=2024-07-30T09:59:56.000Z=&gt;UWRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="value" valueClass="string">SELECT Id FROM Compliance_Review__c WHERE CreatedById='00530000000xI1eAAE' AND ApprovalStatus__c='Approved' AND CreatedDate=2024-07-30T09:59:56.000Z</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">UWRows</value>
+        </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" guid="752b5bc8-beeb-4741-872e-b303b33d4563" name="Write" testItemId="6" title="Write: {UWRows}=&gt;templates/UWRecordsList.csv">
+      <arguments>
+        <argument id="data">
+          <value class="variable">
+            <path element="UWRows"/>
+          </value>
+        </argument>
+        <argument id="dataUrl">
+          <value class="csvTarget">
+            <csvFilePath class="value" valueClass="string">templates/UWRecordsList.csv</csvFilePath>
+          </value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">templates/UWRecordsList.csv</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexBulk" guid="3a5257cc-4db6-460a-96d3-115623ac1de8" name="ApexBulk" testItemId="5" title="Apex Bulk: delete=&gt;ResultObject">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Compliance_Review__c</value>
+        </argument>
+        <argument id="operation">
+          <value class="value" valueClass="string">delete</value>
+        </argument>
+        <argument id="externalIdFieldName"/>
+        <argument id="assignmentRuleId"/>
+        <argument id="data">
+          <value class="url">templates/UWRecordsList.csv</value>
+        </argument>
+        <argument id="contentType">
+          <value class="value" valueClass="string">CSV</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">ResultObject</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+  </steps>
+</testCase>

@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="7b2fd70f-0bcd-4403-89f2-0e98ad22d908" id="28">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="aeaea0e0-ce40-4f42-b0ee-0d62dbf8199f" name="ApexConnect" testItemId="1" title="Salesforce Connect: SystemAdmin (Test)">
+      <tags/>
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">SystemAdministrator</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">26e8fe46-3a97-48d4-a66c-c2930708802b</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="abde5394-b6a7-4b0a-b550-4587703da2b4" isTitleUpdated="true" name="SetValues" testItemId="3" title="Set Values: Date &amp; User">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Date</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">2024-11-05</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">User</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">00580000006p8DZAAY</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">UserFN</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Chip</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">UserLN</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Vann</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+      <parameterValueSources/>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="3a610808-de63-41ef-a921-aa8bde59e5a4" name="SetValues" testItemId="28" title="Set Values: SysAdminUser">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">SysAdminUser</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">0052E00000KWgM7QAL</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="f7eed728-9f86-4236-b2ca-d1185b1bd013" isTitleUpdated="true" name="ApexExecute" testItemId="31" title="Apex Execute-DocuSignDefaultRecipient2">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query DOCU SIGN DEFAULT RECIPIENT2\nList&lt;Apttus_DocuApi__DocuSignDefaultRecipient2__c&gt; docuSignRecToDelete = [select Id from Apttus_DocuApi__DocuSignDefaultRecipient2__c Where Apttus_DocuApi__FirstName__c ='</value>
+              <variable>
+                <path element="UserFN"/>
+              </variable>
+              <value valueClass="string">' AND\nApttus_DocuApi__LastName__c='</value>
+              <variable>
+                <path element="UserLN"/>
+              </variable>
+              <value valueClass="string">' AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z];\n\n// Perform deletion\nif (!docuSignRecToDelete.isEmpty()){\n    delete docuSignRecToDelete;\n    System.debug('Deleted DocuSignRec: ' + docuSignRecToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">DocuSignRecExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="9fc20000-e7d8-489b-9d25-6f8c05583add" isTitleUpdated="true" name="ApexExecute" testItemId="34" title="Apex Execute-DocuSignDefaultRecipient2">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query DOCU SIGN DEFAULT RECIPIENT2\nList&lt;Apttus_DocuApi__DocuSignDefaultRecipient2__c&gt; docuSignRecToDelete = [select Id from Apttus_DocuApi__DocuSignDefaultRecipient2__c Where Apttus_DocuApi__FirstName__c ='TestFN' AND\nApttus_DocuApi__LastName__c Like 'TestContact_%' AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z];\n\n// Perform deletion\nif (!docuSignRecToDelete.isEmpty()){\n    delete docuSignRecToDelete;\n    System.debug('Deleted DocuSignRec: ' + docuSignRecToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">DocuSignRecExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="cbbbfec6-9bcf-4730-973c-f1685ead3e16" isTitleUpdated="true" name="ApexExecute" testItemId="26" title="Apex Execute-DocuSignDefaultRecipient2">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query DOCU SIGN DEFAULT RECIPIENT2\nList&lt;Apttus_DocuApi__DocuSignDefaultRecipient2__c&gt; docuSignRecToDelete = [select Id from Apttus_DocuApi__DocuSignDefaultRecipient2__c Where Apttus_DocuApi__FirstName__c ='Legal' AND\nApttus_DocuApi__LastName__c='PlaceHolder' AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z];\n\n// Perform deletion\nif (!docuSignRecToDelete.isEmpty()){\n    delete docuSignRecToDelete;\n    System.debug('Deleted DocuSignRec: ' + docuSignRecToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">DocuSignRecExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="714a6e1b-a9b9-4100-ba53-e8d1f82e9e7b" isTitleUpdated="true" name="ApexExecute" testItemId="11" title="Apex Execute-Contract">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">List&lt;Contract&gt; contractToDelete = [SELECT Id FROM Contract WHERE Status = 'Activated' AND CreatedById = '</value>
+              <variable>
+                <path element="SysAdminUser"/>
+              </variable>
+              <value valueClass="string">' AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z AND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z];\n        if (!contractToDelete.isEmpty()){\n            delete contractToDelete;\n            System.debug('Deleted Contract: ' + contractToDelete.size());\n        }</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">ContractExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="21c27240-b763-4f2b-a9e3-5e0819cd7fd4" isTitleUpdated="true" name="ApexExecute" testItemId="32" title="Apex Execute-Cases">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query Cases\nList&lt;Case&gt; caseToDelete = [SELECT ID FROM Case Where CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00Z AND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59Z];\nSystem.debug('Case to delete: ' + caseToDelete.size());\nif (!caseToDelete.isEmpty()){\n    delete caseToDelete;\n    System.debug('Deleted Case: ' + caseToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">ContactExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="ce84e524-08bc-4494-84bb-bb2733243ccf" isTitleUpdated="true" name="ApexExecute" testItemId="18" title="Apex Execute-Cases(Remainder)">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query Cases\nList&lt;Case&gt; caseToDelete = [SELECT ID FROM Case Where CreatedById='</value>
+              <variable>
+                <path element="SysAdminUser"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00Z AND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59Z];\nSystem.debug('Case to delete: ' + caseToDelete.size());\nif (!caseToDelete.isEmpty()){\n    delete caseToDelete;\n    System.debug('Deleted Case: ' + caseToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">ContactExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="d1b18360-9f0e-49d0-a620-e03b9ffb3cec" isTitleUpdated="true" name="ApexExecute" testItemId="14" title="Apex Execute-Entitlements">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query Entitlement Record\nList&lt;Entitlement&gt; entitlementToDelete = [select Id from Entitlement Where CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z];\n\n// Perform deletion\nif (!entitlementToDelete.isEmpty()){\n    delete entitlementToDelete;\n    System.debug('Deleted Entitlement: ' + entitlementToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">AccountExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="8c999e03-1b39-4bfb-8567-75e27cea9704" isTitleUpdated="true" name="ApexExecute" testItemId="25" title="Apex Execute-Agreement Pricing Analysis Fee">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query Agreement PA Fee\nList&lt;Agreement_Pricing_Analysis_Fee__c&gt; agreementPAFeeToDelete = [select Id from Agreement_Pricing_Analysis_Fee__c Where CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z];\n\n// Perform deletion\nif (!agreementPAFeeToDelete.isEmpty()){\n    delete agreementPAFeeToDelete;\n    System.debug('Deleted Agreement PA Fee: ' + agreementPAFeeToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">AccountExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="c887b419-5638-4809-9b50-0eaab831b470" isTitleUpdated="true" name="ApexExecute" testItemId="12" title="Apex Execute-Agreement">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query Agreement\nList&lt;Apttus__APTS_Agreement__c&gt; agreementToDelete = [select Id from Apttus__APTS_Agreement__c Where CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z];\n\n// Perform deletion\nif (!agreementToDelete.isEmpty()){\n    delete agreementToDelete;\n    System.debug('Deleted Agreement: ' + agreementToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">AccountExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="9b072f31-7e79-4bcf-a738-25b2d46cf5c3" isTitleUpdated="true" name="ApexExecute" testItemId="33" title="Apex Execute-DocuSignEnvelop">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query DOCU SIGN ENVELOP\nList&lt;Apttus_DocuApi__DocuSignEnvelope__c&gt; docuSignEnvToDelete = [select Id from Apttus_DocuApi__DocuSignEnvelope__c Where CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z];\n\n// Perform deletion\nif (!docuSignEnvToDelete.isEmpty()){\n    delete docuSignEnvToDelete;\n    System.debug('Deleted DocuSignEnv: ' + docuSignEnvToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">DocuSignEnvelopExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="367cebc8-b055-4cf9-bb50-f2757f4986bf" isTitleUpdated="true" name="ApexExecute" testItemId="9" title="Apex Execute-UWR">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query UWR\nList&lt;Compliance_Review__c&gt; uwrToDelete = [select Id from Compliance_Review__c Where CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z];\n\n// Perform deletion\nif (!uwrToDelete.isEmpty()){\n    delete uwrToDelete;\n    System.debug('Deleted UWR: ' + uwrToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">AccountExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="687c9644-01f5-44e8-b7fe-c30477365f84" isTitleUpdated="true" name="ApexExecute" testItemId="23" title="Apex Execute-Approval">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query Approvals\nList&lt;sbaa__Approval__c&gt; approvalsToDelete = [select Id from sbaa__Approval__c Where CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z];\n\n// Perform deletion\nif (!approvalsToDelete.isEmpty()){\n    delete approvalsToDelete;\n    System.debug('Deleted Approval: ' + approvalsToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">AccountExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="a1e61bce-c596-4ee8-9403-495bd806c54e" isTitleUpdated="true" name="ApexExecute" testItemId="24" title="Apex Execute-Pricing Analysis">
+      <tags>
+        <string>disabled</string>
+      </tags>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query PA Record\nList&lt;PricingNextGen__c&gt; pricingToDelete = [select Id from PricingNextGen__c Where CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z];\n\n// Perform deletion\nif (!pricingToDelete.isEmpty()){\n    delete pricingToDelete;\n    System.debug('Deleted Pricing Analysis: ' + pricingToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">AccountExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="f8591707-59a5-4ff2-b16f-5a646c96bcb8" isTitleUpdated="true" name="ApexExecute" testItemId="16" title="Apex Execute-Deal">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query Deal\nList&lt;SBQQ__Quote__c&gt; dealToDelete = [select Id from SBQQ__Quote__c Where CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00.000Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59.000Z];\n\n// Perform deletion\nif (!dealToDelete.isEmpty()){\n    delete dealToDelete;\n    System.debug('Deleted Deal: ' + dealToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">AccountExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="60d93363-1198-4a1a-9e8c-1fb74a12e032" isTitleUpdated="true" name="ApexExecute" testItemId="4" title="Apex Execute-CONTACT">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query Contacts\nList&lt;Contact&gt; contactsToDelete = [SELECT ID FROM Contact Where CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00Z AND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59Z];\nSystem.debug('Contacts to delete: ' + contactsToDelete.size());\nif (!contactsToDelete.isEmpty()){\n    delete contactsToDelete;\n    System.debug('Deleted Contacts: ' + contactsToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">ContactExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="9028492d-59bc-47ef-b995-da2ebae8027a" isTitleUpdated="true" name="ApexExecute" testItemId="5" title="Apex Execute-OPPORTUNITY">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query Opportunities\nList&lt;Opportunity&gt; opportunitiesToDelete = [SELECT Id FROM Opportunity WHERE CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00Z AND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59Z];\nSystem.debug('Opportunities to delete: ' + opportunitiesToDelete.size());\nif (!opportunitiesToDelete.isEmpty()){\n    delete opportunitiesToDelete;\n    System.debug('Deleted Opportunities: ' + opportunitiesToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">OppyExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="ef38a131-156c-4353-a466-b1aea88b20bb" isTitleUpdated="true" name="ApexExecute" testItemId="17" title="Apex Execute-ACCOUNT">
+      <tags/>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query Accounts\nList&lt;Account&gt; accountsToDelete = [SELECT ID FROM Account Where CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59Z];\nSystem.debug('Accounts to delete: ' + accountsToDelete.size());\n// Perform deletion\nif (!accountsToDelete.isEmpty()){\n    delete accountsToDelete;\n    System.debug('Deleted Accounts: ' + accountsToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">AccountExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="f1c903e2-5dda-4c91-aa5e-a00762ace4f0" isTitleUpdated="true" name="ApexExecute" testItemId="6" title="Apex Execute-ACCOUNT,CONTACT,OPPORTUNITY">
+      <tags>
+        <string>disabled</string>
+      </tags>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="apexBlock">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">// Query Accounts\nList&lt;Account&gt; accountsToDelete = [SELECT ID FROM Account Where Name like 'Test Delete%' AND CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00Z\nAND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59Z];\nSystem.debug('Accounts to delete: ' + accountsToDelete.size());\n\n// Query Contacts\nList&lt;Contact&gt; contactsToDelete = [SELECT ID FROM Contact Where Name LIKE 'Test%' AND CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00Z AND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59Z];\nSystem.debug('Contacts to delete: ' + contactsToDelete.size());\n\n// Query Opportunities\nList&lt;Opportunity&gt; opportunitiesToDelete = [SELECT Id FROM Opportunity WHERE CreatedById='</value>
+              <variable>
+                <path element="User"/>
+              </variable>
+              <value valueClass="string">'AND CreatedDate &gt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T00:00:00Z AND CreatedDate &lt;= </value>
+              <variable>
+                <path element="Date"/>
+              </variable>
+              <value valueClass="string">T23:59:59Z];\nSystem.debug('Opportunities to delete: ' + opportunitiesToDelete.size());\n\n// Perform deletion\nif (!accountsToDelete.isEmpty()){\n    delete accountsToDelete;\n    System.debug('Deleted Accounts: ' + accountsToDelete.size());\n}\n\nif (!contactsToDelete.isEmpty()){\n    delete contactsToDelete;\n    System.debug('Deleted Contacts: ' + contactsToDelete.size());\n}\n\nif (!opportunitiesToDelete.isEmpty()){\n    delete opportunitiesToDelete;\n    System.debug('Deleted Opportunities: ' + opportunitiesToDelete.size());\n}</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="results">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="resultName">
+                <value class="value" valueClass="string">ExecuteResult</value>
+              </namedValue>
+              <namedValue name="resultScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+              <namedValue name="regularExpression">
+                <value class="value" valueClass="string">Success</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+  </steps>
+</testCase>

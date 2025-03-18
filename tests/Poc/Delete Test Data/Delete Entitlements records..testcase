@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="0c09b71d-d0eb-4489-8f7c-9671079a30e6" id="16" registryId="2ddb39c3-15e6-4e2c-8c50-975153369ae8">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="29c8c6de-7844-49c0-af46-66c349ebc979" name="ApexConnect" testItemId="1" title="Salesforce Connect: SystemAdmin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">daf3265f-d370-49b6-b8cf-b7e767aa5fad</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="52a6ad3b-f6f5-4f81-83c4-81a29e0640c3" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: SELECT Id FROM Entitlement where CreatedDate=2024-07-23T15:40:11.000Z AND CreatedById ='00530000000xI1e'=&gt;EntitlementRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="value" valueClass="string">SELECT Id FROM Entitlement where CreatedDate=2024-07-23T15:40:11.000Z AND CreatedById ='00530000000xI1e'</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">EntitlementRows</value>
+        </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" guid="219742a9-6f95-41a0-a3fc-054a9c3001b6" name="Write" testItemId="6" title="Write: {EntitlementRows}=&gt;templates/EntitlementsRecordsList.csv">
+      <arguments>
+        <argument id="data">
+          <value class="variable">
+            <path element="EntitlementRows"/>
+          </value>
+        </argument>
+        <argument id="dataUrl">
+          <value class="csvTarget">
+            <csvFilePath class="value" valueClass="string">templates/EntitlementsRecordsList.csv</csvFilePath>
+          </value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">templates/EntitlementsRecordsList.csv</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexBulk" guid="fb62db01-c740-4676-825f-93ae5d87239f" name="ApexBulk" testItemId="5" title="Apex Bulk: delete=&gt;ResultObject">
+      <tags>
+        <string>disabled</string>
+      </tags>
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SystemAdmin</value>
+        </argument>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Entitlement</value>
+        </argument>
+        <argument id="operation">
+          <value class="value" valueClass="string">delete</value>
+        </argument>
+        <argument id="externalIdFieldName"/>
+        <argument id="assignmentRuleId"/>
+        <argument id="data">
+          <value class="url">templates/EntitlementsRecordsList.csv</value>
+        </argument>
+        <argument id="contentType">
+          <value class="value" valueClass="string">CSV</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">ResultObject</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+  </steps>
+</testCase>
