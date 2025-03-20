@@ -16,7 +16,7 @@ import com.provar.core.testapi.annotations.*;
      )             
 public class Apttus_CLM_ImportOfflineDocument {
 
-	@ChoiceListType() @FindBy(xpath="//select[@name='picklistSelect']") public WebElement _;
+	@ChoiceListType() @FindBy(xpath="//select[@name='picklistSelect']") public WebElement picklistSelect_;
 	@ButtonType()
 	@FindBy(xpath = "//button[normalize-space(.)='Next >>']")
 	public WebElement next;
